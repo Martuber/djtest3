@@ -8,3 +8,5 @@ Model:
         description: 图书信息
     HeroInfo:
         description: 图书中的英雄信息（一对多的关系）
+Admin:
+    站点管理
