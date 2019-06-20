@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postTest1</title>
+</head>
+<body>
+<!--action 表示将来我的表单信息通过host方式提交到对应的url中，
+执行对应的视图，然后执行对应urlde 视图,通过post对象接受
+其中：name作为键值   value作为值
+-->
+<form method="post" action="/booktest/postTest2/">
+    用户名:<input type="text" name="uname"><br>
+    密码： <input type="password" name="upassword"><br>
+    性别： <input type="radio" name="ugender" value="男" checked="checked">男
+          <input type="radio" name="ugender" value="女" checked="checked">女<br>
+    爱好：<br>
+          <input type="checkbox" name="uhobby" value="读书看报纸" checked="checked">读书看报纸<br>
+          <input type="checkbox" name="uhobby" value="游泳跑步" checked="checked">游泳跑步<br>
+          <input type="checkbox" name="uhobby" value="三国杀吃鸡" checked="checked">三国杀吃鸡<br>
+    <input type="submit" value="提交">
+<!--   当点击提交的时候，会通过post方式将数据提交到制定的url网页中-->
+
+</form>
+
+</body>
+</html>
