@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import  *
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
@@ -24,6 +24,15 @@ def index(request):
     bookslist = {"books": book_by_jy, "heroes_in_yitian": heroes_in_yitian,
                  "book_contain_xz":book_contain_xz}
     return render(request, template_name="booktest/index.html", context=bookslist)
+
+"""
+讲解Requet对象
+作用是接收包含请求报文的内容（参数），包含两种方案：
+    - get(在url中分？后面的部分给出具体参数)
+    - post
+
+"""
+
 
 
 def detail(request, p1):
@@ -97,5 +106,41 @@ def postTest2(request):
 
     return render(request, template_name="booktest/postTest2.html", context=context)
 
+"""
+Response 对象
+
+属性：
+    - content: 表示要返回的内容，字符串类型
+    - charset: 
+方法：
+    - init():
+    - write():
+    - flush():
+    - set_cookie():
+    
+
+"""
+# cookie 是一个字典对象
+def cookieTest1(request):
+    cookies = request.COOKIES
+    response = HttpResponse()
+    if cookies.__contains__("cookie_data"):
+        response.write(cookies["cookie_data"])
+
+    """设置一个cookie键值"""
+    # response.set_cookie("cookie_data","abc")    #  会在浏览器上显示：Set-Cookie: cookie_data=abc;
+
+    return response
 
 
+"""重定向"""
+def rederect(request):
+    return HttpResponseRedirect("/booktest/target_page")
+
+
+def target_page(request):
+    return HttpResponse("这是重定向之后的地址")
+
+"""session
+作用：状态保持
+"""

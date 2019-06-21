@@ -12,7 +12,9 @@ urlpatterns = [
     url(r"^getTest3/$", views.getTest3, name="getTest3"),
     url(r"^postTest1/$", views.postTest1, name="postTest1"),
     url(r"^postTest2/$", views.postTest2, name="postTest2"),
-
+    url(r"^cookieTest1$", views.cookieTest1, name="cookieTest1"),
+    url(r"^rederect$", views.rederect),
+    url(r"^target_page$", views.target_page),
 
 ]
 # url 包括 正则表达式路径  和 视图名（在视图里面的render函数中的templates参数定义了使用的哦模板） 和 name
